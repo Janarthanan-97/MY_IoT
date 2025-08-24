@@ -34,12 +34,20 @@ function Login() {
   };
 
   return (
-    <Box sx={cssStyles.authStyle.mainBox}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
       <Box>
         <CustomForm
           data={[
             {
-              title: "Login",
+              title: "Loginsss",
               formData: [
                 {
                   inputType: appConstants.customForm.inputType.input,

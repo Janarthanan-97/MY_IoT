@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
 import RenderInputBasedOnProps from "./RenderInputBasedOnProps";
-import CustomButton from "../CustomInputFields/CustomButton";
 import { getdataFromNestedObject } from "../../Utils/CustomFormUtils";
+import CustomButton from "../CustomButton";
 
 function CustomForm({ data, handleSubmit, submitButtonName, hideCancel }) {
   //Variables
@@ -15,6 +15,8 @@ function CustomForm({ data, handleSubmit, submitButtonName, hideCancel }) {
   const handleOnChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
   };
+
+  // on click submit button
   const handleFormSubmit = () => {
     let hasError = false;
     let errorOnSubmit = errors;
@@ -71,7 +73,7 @@ function CustomForm({ data, handleSubmit, submitButtonName, hideCancel }) {
       })}
       <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
         {!hideCancel && <CustomButton label={"Cancel"} />}
-        <CustomButton label={submitButtonName} onClick={handleFormSubmit} />
+        <CustomButton label={submitButtonName} handleClick={handleFormSubmit} />
       </Box>
     </Box>
   );

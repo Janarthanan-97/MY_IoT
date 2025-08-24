@@ -19,15 +19,30 @@ function Register() {
 
   const handleSubmit = async (formData) => {
     try {
-      const response = await authInstances.put("/register", formData);
-      toast.success(response.data.msg);
+      console.log("--register--", formData);
+      const response = await authInstances.put("/user/register", formData);
+      toast.success(response.data.msg, {
+        autoClose: 2500,
+        closeOnClick: true,
+      });
       navigate("/login");
     } catch (error) {
-      toast.error(error.response.data.msg);
+      toast.error(error.response.data.msg, {
+        autoClose: 2500,
+        closeOnClick: true,
+      });
     }
   };
   return (
-    <Box sx={cssStyles.authStyle.mainBox}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
       <Box>
         <CustomForm
           data={[
@@ -37,9 +52,16 @@ function Register() {
                 {
                   inputType: appConstants.customForm.inputType.input,
                   defaultValue: "",
-                  name: "name",
+                  name: "first_name",
                   isRequired: true,
-                  placeHolder: "Name",
+                  placeHolder: "First Name",
+                },
+                {
+                  inputType: appConstants.customForm.inputType.input,
+                  defaultValue: "",
+                  name: "last_name",
+                  isRequired: true,
+                  placeHolder: "Last Name",
                 },
                 {
                   inputType: appConstants.customForm.inputType.input,

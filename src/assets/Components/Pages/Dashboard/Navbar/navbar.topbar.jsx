@@ -1,9 +1,20 @@
 import { Box } from "@mui/material";
-import React from "react";
-import { styles as navStyles } from "./navbar.styles";
+import Logout from "../../Authentication/Logout";
+import appMeta from "../../../AppMeta/AppConstants/appMeta";
 
 function Topbar() {
-  return <Box sx={navStyles.topBar} />;
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        background: appMeta.colorPallet.backgroundDM,
+      }}
+    >
+      <Box></Box>
+      <Logout />
+    </Box>
+  );
 }
 
 export default Topbar;

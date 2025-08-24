@@ -5,11 +5,9 @@ export const cssStyles = {
   },
   authStyle: {
     mainBox: {
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
       height: "100vh",
+      width: "100vw",
+      overFlow: "hidden",
     },
   },
 };
